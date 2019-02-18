@@ -8,29 +8,18 @@
 // handles all the logic of updating the image preview with the data  //
 // submitted by users via the image maker form.                       //
 ////////////////////////////////////////////////////////////////////////
-
+// Define a class that takes an image and adds text to it.
 class ImageMaker {
     constructor(){
-        // When this class is instantiated, the `constructor()` method is executed.
-        // TODO: Set up attributes that point to the HTML elements we wish to work with.
 
-
-        // TODO: Select the `#image-preview` div using any document selector method.
         this.imagePreview = document.querySelector("#image-preview");
-
-        // TODO: create a new `<p>` element called `this.topText`
         this.topText = document.createElement('p');
-        // TODO: Add a `class` attribute to `this.topText` that contains the classname "top-text".
         this.topText.setAttribute('class', 'top-text');
-        // TODO: Append `this.topText` as a child element to `this.imagePreview`
-
         this.imagePreview.appendChild(this.topText);
-        // TODO: create a new `<p>` element called `this.bottomText`
         this.bottomText = document.createElement("p");
-        // TODO: Add a `class` attribute to `this.bottomText` that contains the classname "bottom-text".
         this.bottomText.setAttribute('class', 'bottom-text');
-        // TODO: Append `this.bottomText` as a child element to `this.imagePreview`
         this.imagePreview.appendChild(this.bottomText);
+
         // This class also needs to use the form fields to read user input. Set
         // those up for future use, too.
 
@@ -43,28 +32,17 @@ class ImageMaker {
         // TODO: Select the `input` element with the `name` attribute "bottomText"
         this.bottomTextInput = document.forms[0].querySelector('input[name = "bottomText"');
 
-        // NOTE: If you add additional form fields to modify other aspects of
-        // the image, then you will need to make attributes for each of those
-        // elements here.
     }
+
+    // Update the style attributes and innerHTML content of the HTML
+    // elements selected in the `constructor()`.
     drawPreview(){
-        // This function is called whenever a user changes one of the form fields
-        // and whenever an image is generated for download. This function must
-        // update the style attributes and innerHTML content of the HTML
-        // elements selected in the `constructor()` of this class in order to
-        // update `this.imagePreview`.
 
-        // TODO: Update the `background-image` CSS property for `this.imagePreview`.
         this.imagePreview.style.backgroundImage =`url("images/${this.backgroundInput.value}")`;
-
-        // TODO: Update the `innerHTML` of `this.topText`.
-
         this.topText.innerHTML = this.topTextInput.value;
-        // TODO: Update the `innerHTML` of `this.bottomText`
         this.bottomText.innerHTML = this.bottomTextInput.value;
-
-
     }
+
     downloadImage(){
         this.drawPreview();
         generateImage();
