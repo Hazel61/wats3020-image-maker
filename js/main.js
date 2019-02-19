@@ -75,14 +75,11 @@ function generateImage(elementID="image-preview", height="800px", width="1280px"
         });
 }
 
-
 // This function creates event listeners for each every form field added to
 // the image maker form as well as the submit button that generates an image
 // for download. New form inputs can be created and will automatically have
 // a "change" listener added to them.
 //
-// The form field listeners look for a "change" event and call the
-// `imageMaker.drawPreview()` method.
 //
 // The submit listener on the form interrupts the regular form processing of the
 // browser and calls the `imageMaker.downloadImage()` method.
