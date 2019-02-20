@@ -8,19 +8,24 @@ class ImageMaker {
         this.topText = document.createElement('p');
         this.topText.setAttribute('class', 'top-text');
         this.imagePreview.appendChild(this.topText);
+        this.middleText = document.createElement('p');
+        this.middleText.setAttribute('class', 'middle-text');
+        this.imagePreview.appendChild(this.middleText);
         this.bottomText = document.createElement("p");
         this.bottomText.setAttribute('class', 'bottom-text');
         this.imagePreview.appendChild(this.bottomText);
 
         // Sets up form fields to read user input.
         this.backgroundInput = document.forms[0].querySelector('select[name = "backgroundImage"]');
-        this.topTextInput = document.forms[0].querySelector('input[name = "topText"');
-        this.bottomTextInput = document.forms[0].querySelector('input[name = "bottomText"');
+        this.topTextInput = document.forms[0].querySelector('input[name = "topText"]');
+        this.middleTextInput= document.forms[0].querySelector('input[name = "middleText"]');
+        this.bottomTextInput = document.forms[0].querySelector('input[name = "bottomText"]');
     }
     // update innerHTML of image and text display
     drawPreview(){
         this.imagePreview.style.backgroundImage =`url("images/${this.backgroundInput.value}")`;
         this.topText.innerHTML = this.topTextInput.value;
+        this.middleText.innerHTML = this.middleTextInput.value;
         this.bottomText.innerHTML = this.bottomTextInput.value;
     }
     // Call to create new image and download with new data
